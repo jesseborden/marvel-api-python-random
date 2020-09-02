@@ -4,7 +4,6 @@ from hashlib import md5
 import time
 from collections import namedtuple
 import random
-from requests.exceptions import HTTPError
 
 PUBLIC_KEY = ""
 PRIVATE_KEY = ""
