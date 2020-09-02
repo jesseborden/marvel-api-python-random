@@ -19,13 +19,12 @@ while i==1:
     response.raise_for_status()
     jsonresponse = response.json()
     print(jsonresponse)
-    # Print a Single Character
+    
     pretty_data = json.dumps(jsonresponse, indent=4)
     character=json.loads(pretty_data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
     characterNameHtml="""<h1>"""+character.data.results[0].name+"""</h1>"""
     characterImageHtml="""<image src="""+ "\"" +character.data.results[0].thumbnail.path + "." + character.data.results[0].thumbnail.extension +"\""+ """alt="blah" width="100%" height="100%">"""
 
-    # write character to html file
     f = open('marvel.html', 'w')
     pageContent = """<html><head></head><body>"""+ characterNameHtml + characterImageHtml +"""</body></html>"""
     f.write(pageContent)
